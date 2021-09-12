@@ -126,3 +126,27 @@ p {
 .balik:hover {
     background-color: lightseagreen;
 }
+
+@media (max-width: 741px) {
+    .container {
+        width: 90%;
+    }
+}
+
+@media (max-width: 440px) {
+    h1 {
+        font-size: 30px;
+    }
+}
+
+@media (max-width: 382px) {
+    .gambar1 {
+        width: 80px;
+        height: 80px;
+    }
+
+    .gambar1 img {
+        width: 80px;
+    }
+
+}

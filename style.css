@@ -149,9 +149,9 @@ p {
         width: 80px;
     }
 
-    .container img[alt='gajah'] {
-        width: 80px;
-        height: 80px;
+    .container .gmbrGJH {
+        width: 90px;
+        height: 90px;
     }
 
 }

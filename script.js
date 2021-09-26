@@ -13,7 +13,7 @@ $(document).ready(function () {
     }
 
     alert('Selamat datang ' + nama + ' digame Suwit Jawa')
-    alert('RULES!!!' + '\nSetiap gamenya kamu memiliki 10 kesempatan bermain' + '\nSetelah 10 kali kesempatan, akan diberikan hasil scoremu' + '\nLalu,Hasil akan direset')
+    alert('RULES!!!' + '\n- Setiap gamenya kamu memiliki 10 kesempatan bermain' + '\n- Setelah 10 kali kesempatan, akan diberikan hasil scoremu' + '\n- Lalu,Hasil akan direset')
     alert('Selamat Bermain!!')
 
     $(window).on('load', function () {

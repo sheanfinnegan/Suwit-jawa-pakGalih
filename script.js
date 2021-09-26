@@ -1,11 +1,26 @@
 //ambil pilihan comp
 $(document).ready(function () {
+    let namaOrang = true;
+
+
+    while (namaOrang) {
+        nama = prompt('Masukkan Nama Player');
+        if (nama <= 0 || nama >= 0) {
+            alert('Anda Memasukkan Nama yang Salah');
+        } else {
+            namaOrang = confirm('Mau Ganti Nama?')
+        }
+    }
+
+    alert('Selamat datang ' + nama + ' digame Suwit Jawa' + '\nSetiap Gamenya Kamu memiliki 10 kesempatan bermain' + '\nSetelah 10 kali kesempatan, akan diberikan hasil scoremu')
+    alert('Selamat Bermain!!')
 
     $(window).on('load', function () {
         setTimeout(function () {
             $('.preloader').fadeOut(700)
         }, 800)
     });
+
 
     function getComp() {
         const comp = Math.random();
@@ -22,6 +37,12 @@ $(document).ready(function () {
         if (player == 'semut') return (comp == 'gajah') ? 'MENANG!!' : 'KALAH!!';
     }
 
+
+
+    let arrMenang = [];
+    let arrKalah = [];
+    let arrSeri = [];
+    const isiHasil = document.getElementsByClassName('isi')[0];
     const pImg = document.querySelectorAll('.gambar1 img')
     pImg.forEach(function (e) {
         e.addEventListener('click', function () {
@@ -30,11 +51,39 @@ $(document).ready(function () {
             const hasil = getHasil(pilihanComputer, pilihanPlayer);
             const imgComputer = document.querySelector('.container img')
             imgComputer.setAttribute('src', 'pic-3/' + pilihanComputer + '.png')
-            const isiHasil = document.getElementsByClassName('isi')[0];
             isiHasil.innerHTML = hasil;
+            if (isiHasil.textContent == 'MENANG!!') {
+                arrMenang.push("m");
+            } else if (isiHasil.textContent == 'KALAH!!') {
+                arrKalah.push("k");
+            } else if (isiHasil.textContent == 'SERI!!') {
+                arrSeri.push("s");
+            }
+
+            function kamuApa() {
+                if (arrMenang.length > arrKalah.length) return 'Kamu Jago!!';
+                if (arrMenang.length < arrKalah.length) return 'Kamu Cupu!! Coba Lagi'
+                if (arrMenang.length == arrKalah.length) return 'Kamu Beruntung!!'
+            }
+
+            if (arrMenang.length + arrSeri.length + arrKalah.length == 10) {
+                alert('Score Kamu' + '\nMenang: ' + arrMenang.length + ', Kalah: ' + arrKalah.length + ', Seri: ' + arrSeri.length + '\n' + nama + ', ' + kamuApa())
+                arrMenang = [];
+                arrSeri = [];
+                arrKalah = [];
+                isiHasil.textContent = 'HASIL'
+            }
+
         })
     })
 });
+
+
+
+
+
+
+
 
 
 
